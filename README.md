@@ -5,4 +5,4 @@
 -kda yb2a na2es : Control unit - Forwarding unit- Hazards unit - Branching prediction da .
 -b3d kda ne3ml module esmo MIPS yb2a feh kol el units de btshtghal m3 b3daha w btakhod inputs w tetla3 outputs.
 -kda yb2a na2es el synthesis : ngeb el software w ne3raf byshtghal ezay.
--*ana kan asde enena mesh hn7tag nebny 3la shoghl b3d 3shan mmkin nakhod el sora de ka refrence lel inputs w al outputs , fa lw 7asal ekhtlaf hyb2a baset y3ni :'D *
+-*ana kan asde enena mesh hn7tag nebny 3la shoghl b3d 3shan mmkin nakhod el sora de ka refrence lel inputs w al outputs , fa lw 7asal ekhtlaf hyb2a baset y3ni :'D * 
