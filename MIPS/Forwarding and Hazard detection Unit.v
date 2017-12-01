@@ -37,3 +37,37 @@ end
 
 endmodule
 
+
+
+module HazardDetection(		//to detect if an instr is using a value still being loaded from memory.
+input IDEXMemRead,		//will insert a stall -nop-
+input [4:0] IDEXRegisterRt,	//and will make the pc stay with the same address
+input [4:0] IFIDRegisterRs,			//will make the values in IFID reg get the same values again.
+input [4:0] IFIDRegisterRt,
+output reg IFIDWrite,
+output reg PCWrite,
+output reg stall
+);
+
+always@*
+begin
+
+if (IDEXMemRead &&    	//if it is a load instruction
+((IDEXRegisterRt == IFIDRegisterRs) ||(IDEXRegisterRt == IFIDRegisterRt)))		//checks if I am using the value that I just loaded
+begin
+stall<=1;//control lines (EX, MEM, and WB)in the ID/EX reg being set to zero only RegWrite and MemWrite
+PCWrite<=0;	//control signal sent to PC reg to tell it not to update its values.
+IFIDWrite<=0; 	//control signal sent to IFID reg to tell it not to update its values.
+end
+else
+begin
+stall<=0;
+PCWrite<=1;
+IFIDWrite<=1;
+end
+
+end
+
+endmodule
+
+
